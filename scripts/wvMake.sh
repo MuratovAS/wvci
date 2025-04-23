@@ -26,7 +26,7 @@ do
 	mkdir -p $OUTPUT_DIR
 	
 	if [ "$PRJ_VERSION" == "git" ]; then
-		PRJ_VERSION="hash:`git log --date=format:'%Y%m%d%H' --pretty=tformat:"%h-[%cd]" $FILE | head -n1`"
+		PRJ_VERSION="git:`git log --date=format:'%Y%m%d%H' --pretty=tformat:"%h [%cd]" $FILE | head -n1`"
 	fi
 	
 	sed -i "s/vV.V.V-VVV/\"$PRJ_VERSION\"/g" $FILE
